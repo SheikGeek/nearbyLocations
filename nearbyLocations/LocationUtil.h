@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-#define GOOGLE_API_KEY @"AIzaSyCNtkj-JYaXDPnMPv_l72PaO1QCGTaj_h8"
+#define CLIENT_ID @"Z3TJBSZWVLLH4CQIZYEC4YSDPSFZJ0EV5M4RYJMWBFRQQO5S"
+#define CLIENT_SECRET @"LL5SPVXAG3BHHJB2AS1BPDYFZT2KST0B1HWPMUZFKAYWHK0C"
 #define bgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface LocationUtil : NSObject <CLLocationManagerDelegate> {

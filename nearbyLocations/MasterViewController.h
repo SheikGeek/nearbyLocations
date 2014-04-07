@@ -10,4 +10,6 @@
 
 @interface MasterViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
+-(IBAction)refreshLocations:(id)sender;
+
 @end

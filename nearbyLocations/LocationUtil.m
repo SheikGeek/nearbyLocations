@@ -35,9 +35,10 @@
 
 #pragma mark - googleQuery methods
 -(void) queryForLocationsNearMe {
-    // Build the url string to send to Google. NOTE: The kGOOGLE_API_KEY is a constant that should contain your own API key that you obtain from Google. See this link for more info:
-    // https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f, %f&radius=500&query=coffee&client_id=Z3TJBSZWVLLH4CQIZYEC4YSDPSFZJ0EV5M4RYJMWBFRQQO5S&client_secret=LL5SPVXAG3BHHJB2AS1BPDYFZT2KST0B1HWPMUZFKAYWHK0C&v=20131016", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude];//[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%@&types=%@&sensor=true&key=%@", currLoc.latitude, currLoc.longitude, [NSString stringWithFormat:@"%i", dist], googleType, GOOGLE_API_KEY];
+
+    //https://developer.foursquare.com/docs/venues/search
+    NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f, %f&radius=500&query=coffee&client_id=%@&client_secret=%@&v=20131016", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude, CLIENT_ID, CLIENT_SECRET];
+    
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     //Formulate the string as a URL object.

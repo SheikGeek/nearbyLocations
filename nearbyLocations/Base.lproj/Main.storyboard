@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Venue" textLabel="2pz-XF-uhl" rowHeight="100" style="IBUITableViewCellStyleDefault" id="m0d-ak-lc9" customClass="Venue">
-                                <rect key="frame" x="0.0" y="86" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0d-ak-lc9" id="QFn-YN-BCA">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="99"/>
@@ -101,12 +101,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Locations" id="tQt-TN-PWz">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="4L8-Np-w8W">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="4L8-Np-w8W">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="YXp-eF-FzE" kind="push" identifier="showMap" id="g7N-6T-Ewm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="aIr-lp-uEo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="aIr-lp-uEo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="refreshLocations:" destination="pGg-6v-bdr" id="KCd-gD-Xt8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
@@ -129,7 +135,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="GKD-id-0s2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="GLK-zZ-M32" userLabel="List view button">
+                        <barButtonItem key="leftBarButtonItem" title="List" id="GLK-zZ-M32" userLabel="List view button">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="pGg-6v-bdr" kind="push" id="5mk-7T-zVJ"/>
                             </connections>
@@ -203,6 +210,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="g7N-6T-Ewm"/>
-        <segue reference="7tQ-7c-7zx"/>
+        <segue reference="5mk-7T-zVJ"/>
     </inferredMetricsTieBreakers>
 </document>

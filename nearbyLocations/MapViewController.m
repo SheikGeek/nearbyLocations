@@ -18,12 +18,14 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
 
-    self.placesUtil = [[LocationUtil alloc] init];
     //Make this controller the delegate for the map view.
     self.mapView.delegate = self;
     
     // Ensure that you can view your own location in the map view.
     [self.mapView setShowsUserLocation:YES];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [self plotPositions:appDelegate.location.places];
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,6 +36,7 @@
 
 -(IBAction)refreshLocations:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.location getUserCurrentLocation];
     [self plotPositions:appDelegate.location.places];
 }
 
@@ -53,10 +56,8 @@
     MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
     MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
     
-    //Set your current distance instance variable.
     currentDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
     
-    //Set your current center point on the map instance variable.
     currentCentre = self.mapView.centerCoordinate;    
 }
 

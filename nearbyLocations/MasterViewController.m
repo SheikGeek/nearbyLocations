@@ -20,12 +20,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //[appDelegate.location queryForLocationsNearMe];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.tableView reloadData];
+}
+
+-(IBAction)refreshLocations:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.location getUserCurrentLocation];
     [self.tableView reloadData];
 }
 

@@ -13,13 +13,12 @@
 #import "LocationUtil.h"
 
 @interface MapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate> {
-    CLLocationManager *locationManager;
     CLLocationCoordinate2D currentCentre;
     int currentDist;
 }
 
 @property(nonatomic, weak) IBOutlet MKMapView *mapView;
-@property(nonatomic, strong) LocationUtil *placesUtil;
+
 -(IBAction)refreshLocations:(id)sender;
 
 @end
