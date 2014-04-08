@@ -17,6 +17,8 @@
     
     //Query for user's current location
     self.location = [[LocationUtil alloc] init];
+    self.location.placesCache = [[NSCache alloc] init];
+
     [self.location getUserCurrentLocation];
 
     return YES;

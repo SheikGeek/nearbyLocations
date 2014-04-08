@@ -25,6 +25,7 @@
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     NSLog(@"MyLocation:%@", locations);
+    
     [locationManager stopUpdatingLocation];
     [self queryForLocationsNearMe];
 }
@@ -42,16 +43,29 @@
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     //Formulate the string as a URL object.
-    NSURL *googleRequestURL=[NSURL URLWithString:url];
+    NSURL *requestURL=[NSURL URLWithString:url];
     
     // Retrieve the results of the URL.
     dispatch_async(bgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL: googleRequestURL];
+        NSData* data = [NSData dataWithContentsOfURL:requestURL];
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
 }
 
 -(void)fetchedData:(NSData *)responseData {
+    
+    if (responseData == nil) {
+        UIAlertView *alert;
+        if (self.places == nil) {
+            alert = [[UIAlertView alloc] initWithTitle:@"Network Issue" message:@"Your nearby locations could not be gathered at this time. Please check your internet connection and try again later." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        }
+        else {
+            alert = [[UIAlertView alloc] initWithTitle:@"Network Issue" message:@"Your nearby locations could not be refreshed. Please check your internet connection and try again later." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        }
+        [alert show];
+        return;
+    }
+    
     //parse out the json data
     NSError* error;
     NSDictionary* json = [NSJSONSerialization
@@ -60,15 +74,11 @@
                           options:kNilOptions
                           error:&error];
     
-    //The results from Google will be an array obtained from the NSDictionary object with the key "results".
-    //self.places = [[json objectForKey:@"response"] objectForKey:@"venues"];
     [self getOnlyNeededItemsOfFetchedData:[[json objectForKey:@"response"] objectForKey:@"venues"]];
     
     //Write out the data to the console.
     NSLog(@"Google Data: %@", self.places);
     
-    //TODO set up NSCache
-    //[self plotPositions:places];
     
 };
 - (void)getOnlyNeededItemsOfFetchedData:(NSArray *) data {

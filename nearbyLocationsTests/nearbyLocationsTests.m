@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <CoreLocation/CoreLocation.h>
+#import "LocationUtil.h"
 
 @interface nearbyLocationsTests : XCTestCase
 
@@ -26,9 +28,7 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
 
+-(void)testQueryingForLocations {
+}
 @end

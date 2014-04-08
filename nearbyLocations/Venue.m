@@ -20,16 +20,28 @@
     self.distanceFromUser.text = [NSString stringWithFormat:@"%.02f miles away", distFloat];
     
     //Venue Category w/ small icon
+
     if (data[@"categories"] != nil && [data[@"categories"] count] != 0) {
         self.type.text = data[@"categories"][0][@"name"];
-        NSString *imageFileName =[[NSBundle mainBundle] pathForResource:[[data[@"categories"][0][@"name"] lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@"_"] ofType:@"png"];
+        
+        NSString *imageFileName;
+        if ([data[@"categories"][0][@"name"] rangeOfString:@"Caf"].location != NSNotFound) {
+            imageFileName =[[NSBundle mainBundle] pathForResource:@"cafe" ofType:@"png"];
+
+        }
+        else {
+        imageFileName =[[NSBundle mainBundle] pathForResource:[[data[@"categories"][0][@"name"] lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@"_"] ofType:@"png"];
+        }
+        
         UIImage *typeImage = [[UIImage alloc] initWithContentsOfFile:imageFileName];
     
         self.typeIcon.image  = typeImage;
+        self.imageView.image = typeImage;
     }
     else {
         self.typeIcon = nil;
         self.type.text = @"";
+        self.imageView.image = nil;
     }
     
 }
