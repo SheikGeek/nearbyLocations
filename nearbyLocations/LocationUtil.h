@@ -17,8 +17,7 @@
     CLLocationManager *locationManager;
 }
 
-@property(nonatomic, strong) NSArray *places;
-@property(nonatomic, strong) NSCache *placesCache;
+@property (nonatomic, strong) NSArray *places;
 
 - (void)getUserCurrentLocation;
 - (CLLocationCoordinate2D)getUserCurrCoord;

@@ -31,17 +31,20 @@
         }
         else {
         imageFileName =[[NSBundle mainBundle] pathForResource:[[data[@"categories"][0][@"name"] lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@"_"] ofType:@"png"];
+            if (imageFileName == nil) {
+                imageFileName =[[NSBundle mainBundle] pathForResource:@"restaurant" ofType:@"png"];
+            }
         }
         
         UIImage *typeImage = [[UIImage alloc] initWithContentsOfFile:imageFileName];
     
         self.typeIcon.image  = typeImage;
-        self.imageView.image = typeImage;
+        self.placeIcon.image = typeImage;
     }
     else {
-        self.typeIcon = nil;
+        self.typeIcon.image = nil;
         self.type.text = @"";
-        self.imageView.image = nil;
+        self.placeIcon.image = nil;
     }
     
 }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 -(IBAction)refreshLocations:(id)sender;
 

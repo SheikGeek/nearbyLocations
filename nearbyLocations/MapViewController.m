@@ -9,16 +9,11 @@
 #import "MapViewController.h"
 #import "AppDelegate.h"
 
-@interface MapViewController ()
-
-@end
-
 @implementation MapViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
 
-    //Make this controller the delegate for the map view.
     self.mapView.delegate = self;
     
     // Ensure that you can view your own location in the map view.
@@ -36,6 +31,8 @@
 
 -(IBAction)refreshLocations:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //Check that the User's current location and then replot the nearby locations on the map
     [appDelegate.location getUserCurrentLocation];
     [self plotPositions:appDelegate.location.places];
 }
@@ -44,8 +41,8 @@
 - (void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views {
     MKCoordinateRegion region;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    region = MKCoordinateRegionMakeWithDistance([appDelegate.location getUserCurrCoord],1000,1000);
     
+    region = MKCoordinateRegionMakeWithDistance([appDelegate.location getUserCurrCoord],1000,1000);
     [mv setRegion:region animated:YES];
     
 }
@@ -57,14 +54,13 @@
     MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
     
     currentDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
-    
     currentCentre = self.mapView.centerCoordinate;    
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     // Define your reuse identifier.
     static NSString *identifier = @"MapPoint";
-    
+
     if ([annotation isKindOfClass:[MapPoint class]]) {
         MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         if (annotationView == nil) {
@@ -72,33 +68,35 @@
         } else {
             annotationView.annotation = annotation;
         }
+        
         annotationView.enabled = YES;
         annotationView.canShowCallout = YES;
         annotationView.animatesDrop = YES;
+        
         return annotationView;
     }
     return nil;
 }
 
 -(void)plotPositions:(NSArray *)data {
-    // 1 - Remove any existing custom annotations but not the user location blue dot.
+    //Remove any existing custom annotations but not the user location blue dot.
     for (id<MKAnnotation> annotation in self.mapView.annotations) {
         if ([annotation isKindOfClass:[MapPoint class]]) {
             [self.mapView removeAnnotation:annotation];
         }
     }
       for (int i=0; i<[data count]; i++) {
-        NSDictionary *currPlace = [data objectAtIndex:i];
-        NSDictionary *loc = [currPlace objectForKey:@"location"];
-        // 4 - Get your name and address info for adding to a pin.
-        NSString *name=[currPlace objectForKey:@"name"];
-        NSString *vicinity=[loc objectForKey:@"address"];
-        // Create a special variable to hold this coordinate info.
-        CLLocationCoordinate2D placeCoord;
+        NSDictionary *currPlace = data[i];
+        NSDictionary *loc = currPlace[@"location"];
+        
+        NSString *name= currPlace[@"name"];
+        NSString *vicinity= loc[@"address"];
+
         // Set the lat and long.
-        placeCoord.latitude=[[loc objectForKey:@"lat"] doubleValue];
-        placeCoord.longitude=[[loc objectForKey:@"lng"] doubleValue];
-        // 5 - Create a new annotation.
+        CLLocationCoordinate2D placeCoord;
+        placeCoord.latitude= [loc[@"lat"] doubleValue];
+        placeCoord.longitude= [loc[@"lng"] doubleValue];
+
         MapPoint *placeObject = [[MapPoint alloc] initWithName:name address:vicinity coordinate:placeCoord];
         [self.mapView addAnnotation:placeObject];
     }

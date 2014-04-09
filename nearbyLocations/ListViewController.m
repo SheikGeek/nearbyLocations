@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Chelsea Carr. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "ListViewController.h"
 #import "AppDelegate.h"
 #import "Venue.h"
 
-@implementation MasterViewController
+@implementation ListViewController
 
 - (void)awakeFromNib
 {
@@ -58,22 +58,6 @@
     [venueCell setupData:appDelegate.location.places[indexPath.row]];
 
     return venueCell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    /*if ([[segue identifier] isEqualToString:@"showMap"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
-    }*/
 }
 
 @end

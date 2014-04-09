@@ -14,7 +14,7 @@
 		289E255718ED1F8E00E93E5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E255618ED1F8E00E93E5E /* main.m */; };
 		289E255B18ED1F8E00E93E5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E255A18ED1F8E00E93E5E /* AppDelegate.m */; };
 		289E255E18ED1F8E00E93E5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289E255C18ED1F8E00E93E5E /* Main.storyboard */; };
-		289E256118ED1F8E00E93E5E /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E256018ED1F8E00E93E5E /* MasterViewController.m */; };
+		289E256118ED1F8E00E93E5E /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E256018ED1F8E00E93E5E /* ListViewController.m */; };
 		289E256618ED1F8E00E93E5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289E256518ED1F8E00E93E5E /* Images.xcassets */; };
 		289E256D18ED1F8F00E93E5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289E256C18ED1F8F00E93E5E /* XCTest.framework */; };
 		289E256E18ED1F8F00E93E5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289E254A18ED1F8E00E93E5E /* Foundation.framework */; };
@@ -60,8 +60,8 @@
 		289E255918ED1F8E00E93E5E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		289E255A18ED1F8E00E93E5E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		289E255D18ED1F8E00E93E5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		289E255F18ED1F8E00E93E5E /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		289E256018ED1F8E00E93E5E /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		289E255F18ED1F8E00E93E5E /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		289E256018ED1F8E00E93E5E /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		289E256518ED1F8E00E93E5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		289E256B18ED1F8F00E93E5E /* nearbyLocationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nearbyLocationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		289E256C18ED1F8F00E93E5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,6 +83,7 @@
 		28CF665218F1FACC0059BF73 /* snack_place.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snack_place.png; sourceTree = "<group>"; };
 		28E89F3518F249C30016BB36 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		28E89F3618F249C30016BB36 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
+		28E89F3918F50D3C0016BB36 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +133,7 @@
 		289E254918ED1F8E00E93E5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28E89F3918F50D3C0016BB36 /* SenTestingKit.framework */,
 				289E258A18ED231E00E93E5E /* MapKit.framework */,
 				289E254A18ED1F8E00E93E5E /* Foundation.framework */,
 				289E254C18ED1F8E00E93E5E /* CoreGraphics.framework */,
@@ -152,8 +154,8 @@
 				289E255918ED1F8E00E93E5E /* AppDelegate.h */,
 				289E255A18ED1F8E00E93E5E /* AppDelegate.m */,
 				289E255C18ED1F8E00E93E5E /* Main.storyboard */,
-				289E255F18ED1F8E00E93E5E /* MasterViewController.h */,
-				289E256018ED1F8E00E93E5E /* MasterViewController.m */,
+				289E255F18ED1F8E00E93E5E /* ListViewController.h */,
+				289E256018ED1F8E00E93E5E /* ListViewController.m */,
 				289E256518ED1F8E00E93E5E /* Images.xcassets */,
 				289E255118ED1F8E00E93E5E /* Supporting Files */,
 				289E258C18ED30CA00E93E5E /* LocationUtil.h */,
@@ -316,7 +318,7 @@
 				289E258E18ED30CA00E93E5E /* LocationUtil.m in Sources */,
 				28CF664C18F12A970059BF73 /* Venue.m in Sources */,
 				289E255B18ED1F8E00E93E5E /* AppDelegate.m in Sources */,
-				289E256118ED1F8E00E93E5E /* MasterViewController.m in Sources */,
+				289E256118ED1F8E00E93E5E /* ListViewController.m in Sources */,
 				289E255718ED1F8E00E93E5E /* main.m in Sources */,
 				289E258618ED227D00E93E5E /* MapPoint.m in Sources */,
 			);
@@ -451,6 +453,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nearbyLocations/nearbyLocations-Prefix.pch";
 				INFOPLIST_FILE = "nearbyLocations/nearbyLocations-Info.plist";
@@ -467,6 +473,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nearbyLocations/nearbyLocations-Prefix.pch";
 				INFOPLIST_FILE = "nearbyLocations/nearbyLocations-Info.plist";

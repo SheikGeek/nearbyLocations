@@ -11,20 +11,16 @@
 @implementation LocationUtil
 
 - (void)getUserCurrentLocation {
-    //Instantiate a location object.
     locationManager = [[CLLocationManager alloc] init];
     
-    //Make this controller the delegate for the location manager.
     [locationManager setDelegate:self];
-    
-    //Set some parameters for the location object.
     [locationManager setDistanceFilter:kCLDistanceFilterNone];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [locationManager startUpdatingLocation];
 }
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    NSLog(@"MyLocation:%@", locations);
+    NSLog(@"User's Location:%@", locations);
     
     [locationManager stopUpdatingLocation];
     [self queryForLocationsNearMe];
@@ -40,9 +36,9 @@
     //https://developer.foursquare.com/docs/venues/search
     NSString *url = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f, %f&radius=500&query=coffee&client_id=%@&client_secret=%@&v=20131016", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude, CLIENT_ID, CLIENT_SECRET];
     
+    //In case characters (such as spaces) are passed back
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    //Formulate the string as a URL object.
     NSURL *requestURL=[NSURL URLWithString:url];
     
     // Retrieve the results of the URL.
@@ -53,7 +49,6 @@
 }
 
 -(void)fetchedData:(NSData *)responseData {
-    
     if (responseData == nil) {
         UIAlertView *alert;
         if (self.places == nil) {
@@ -68,19 +63,14 @@
     
     //parse out the json data
     NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData
-                          
-                          options:kNilOptions
-                          error:&error];
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     
-    [self getOnlyNeededItemsOfFetchedData:[[json objectForKey:@"response"] objectForKey:@"venues"]];
+    [self getOnlyNeededItemsOfFetchedData:json[@"response"][@"venues"]];
     
     //Write out the data to the console.
-    NSLog(@"Google Data: %@", self.places);
-    
-    
-};
+    NSLog(@"Foursquare Data: %@", self.places);
+}
+
 - (void)getOnlyNeededItemsOfFetchedData:(NSArray *) data {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
 
@@ -88,9 +78,11 @@
         NSDictionary *tempElementStorage;
         NSDictionary *currPlace = data[i];
         
+        //only keep the data we are currently going to use.
         tempElementStorage = @{@"name" : currPlace[@"name"], @"location" : currPlace[@"location"], @"categories" : currPlace[@"categories"]};
-        NSLog(@"%@", tempElementStorage);
-        [tempArray addObject:tempElementStorage];
+        tempArray[i] = tempElementStorage;
+
+        NSLog(@"Item %i to be stored in an array %@", i, tempElementStorage);
     }
     [self sortFetchedData:tempArray];
 }

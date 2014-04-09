@@ -17,7 +17,7 @@
     int currentDist;
 }
 
-@property(nonatomic, weak) IBOutlet MKMapView *mapView;
+@property (nonatomic, weak) IBOutlet MKMapView *mapView;
 
 -(IBAction)refreshLocations:(id)sender;
 

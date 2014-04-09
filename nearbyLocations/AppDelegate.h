@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LocationUtil.h"
 
-#define bgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;

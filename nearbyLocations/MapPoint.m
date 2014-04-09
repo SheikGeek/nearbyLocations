@@ -15,13 +15,12 @@
         self.name = [name copy];
         self.address = [address copy];
         _coordinate = coordinate;
-        
     }
     return self;
 }
 
 -(NSString *)title {
-    return ([self.name isEqualToString:@""] || self.name == nil) ? @"Unknown charge" : self.name;
+    return ([self.name isEqualToString:@""] || self.name == nil) ? @"Unknown Location" : self.name;
 }
 
 -(NSString *)subtitle {

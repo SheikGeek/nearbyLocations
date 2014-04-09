@@ -30,5 +30,6 @@
 
 
 -(void)testQueryingForLocations {
+    XCTAssertNil(nil, @"not nil");
 }
 @end
