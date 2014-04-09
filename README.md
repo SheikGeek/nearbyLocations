@@ -41,3 +41,18 @@ I knew this was something I really should have known how to use, but since I sta
 
 ### NSCache
 I had read about this previously, but never actually tried using it.  I unfortunately made the mistake of trying to integrate this at the very end of implementing this project, which wasn't really bad, but I felt like I wasn't using it properly.  After doing some further reading on it, I realized it is basically just an iOS owned NSMutableDictionary.  Since my plan of using it was to help the data persist when there was no network activity, I realized I didn't really need it (maybe later as a future enhancement).  I had already created a mutable storage object to hold all of my data in case of a network timeout.  The only problem with using a mutable structure or NSCache, is the data doesn't persist when you kill the app completely.  If I were to re-implement this part later and narrow down the amount of items returned from Foursquare, I might try storing these items in a plist or flatfile within the apps filesystem on the device. I would then be able to check that when no connection is available. This could cause some security issues though as we don't necessarily want the user's location to be available when the app isn't running.
+
+## Enchancements
+There are definitely a lot of ways I could improve the app and a few ideas I have to implement portions of the app differently.
+
+### Data loading in the project
+### NSCache vs. Flat Files vs. NSMutableDictionary
+### Foursquare API choice
+### UITableView data display
+### Mapview
+### Details View
+### Keyword search capability
+### Better tests
+### More User-friendly errors
+### OAuth integration to allow sharing between friends
+### Suggestions based on Foursquare user's previous venues visited
