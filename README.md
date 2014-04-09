@@ -12,6 +12,15 @@ Here is a list of Tutorials and Resources I utilized:
 [Foursquare Search Venues] (https://developer.foursquare.com/docs/venues/search)  
 And MANY stackoverflow postings
 
+## A Few Notes for Running the Project
+I am using the Foursquare API, which means the project utilizes a ClientID and ClientSecret.  If this were a project I was going to submit to the app store, I wouldn't leave them in the project on github.  However since this was for learning purposes and a coding challenge, I decided to leave it in since this app shouldn't be getting much traffic.  
+
+If you plan on running this on a device and you have a provisioning profile of your own (with it's own bundleID, then please feel free to use that.  You will however need to obtain your own ClientID and ClientSecret from Foursquare and register your bundleID with Foursquare to make the project obtain search results.  Once you obtain a ClientID and Client secret, replace the values defined at the top of LocationHelper.h with your values and the project should work!  
+
+Currently the app is only searching for places related to "coffee".  If you would like to change this out with a different value, change the "query=coffee" parameter of URL on line 37 to "query=<whatever you want>".  
+
+Please check the Enhancements section of this ReadMe to read about ways I would like to improve this and other parts of the app.
+
 ## The Process
 Even though the main part of the challenge was to tackle creating a UITableView that displayed a list of nearby locations, I knew I wanted to tackle plotting those locations on a map.  So to do that, I was going to need to store the locations in a common file, that would then be shared by both the UITableView and the Mapkit view.  Since I also was pretty unfamiliar with how CLLocations and Mapkit worked, I decide I would start by implementing a mapview and finding my current location.  After that was working, I set up a request to Google's location API and created a Map Point class (as seen in Ray Wenderlich's tutorial for Mapkit).  I then switched over to Foursquare's API.  Once that was working I began to customize what data I wanted to store from the responses.  After everything looked good in a mapview, I moved on to implementing the tableview and formatting the data.  I then added some error handling (Mainly to validate data was being returned). Finally, I started adding some tests.
 
