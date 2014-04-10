@@ -45,14 +45,38 @@ I had read about this previously, but never actually tried using it.  I unfortun
 ## Enchancements
 There are definitely a lot of ways I could improve the app and a few ideas I have to implement portions of the app differently.
 
-### Data loading in the project
+### Data loading in the project  
+I am using asynchronous loading currently, which has it's pros and cons.  The good news is, the data can load without disrupting other functionality in the app.  The bad news is, nothing in the app can really happen until data is obtained.  It would be good if I switched to a "lazily loading" method or made the app use some sort of "next page is loading" screen.
+
 ### NSCache vs. Flat Files vs. NSMutableDictionary
+I debated about what to use to store data for quite a while.  I am most familiar with NSMutableDictionaries, which is what I ended up going with since I was taking on a significant amount of new classes and libraries to learn.  As mentioned above, Flat Files would provide the most usage between sessions of the app, however large amounts of data and security could be a concern.  NSCache would also be a better choice than using an NSMutableDictionary, since it handles garbage collection in low memory situations.
+
 ### Foursquare API choice
+I ended up using the Venue Search API, which provides a lot of data, but unfortunately, not enough data.  I would like to switch to the Venue Explore API, which would enable me to pull a venues hours to figure out if they are open or closed, the venues icon to be displayed instead of the Foursquare category and maybe even data about a Venues popularity.
+
 ### UITableView data display
+I ran into some issues with displaying correct data.  Since I had some API limitations with the Foursquare API I chose to use, I was not able to pull certain attributes that would make each Venue Cell more polished.  As mentioned above, a Venue icon and hours would have fixed the two main issues with the cell.
+
 ### Mapview
+The Mapview currently has limited functionality.  I am statically setting the radius at which the points are displayed and there is no zoom capability.  By making the radius for search results dynamic (based on the zoom level of the user's choosing) I could allow for much more specific or vague results.  The annotations could be a little more detailed and even more so polished.  Maybe they could even include all the same data as the Venue table cells, for consistency.
+
 ### Details View
+I currently did not implement a detail view to be displayed when a user clicks on a Venue table cell.  Similar to Foursquare, Belly and Yelp, it would be nice for each Venue to take the user to a more detailed page about a Venue.
+
 ### Keyword search capability
+The app currently defaults to searching for "coffee", but it would be nice if the user could search for whatever they want or are looking for in a venue.
+
 ### Better tests
+If I were to redo this project, I would use Test Driven Development.  This would have made setting up the NSURLRequests so much easier.  I also came across some pretty interesting Location based mockup classes specifically for testing, which would really enhance this app's unit testing.
+
 ### More User-friendly errors
+I only added a few alerts around Network connection, but there are so many other things that could go wrong.  It would be good to add some more error handling that gives the user a more precise error message.
+
 ### OAuth integration to allow sharing between friends
+By adding the Foursquare OAuth calls, this would open up some more options for personalized data.  Users could see if their friends have been to a Venue, share Venues with friends, give Venues ratings, etc.
+
 ### Suggestions based on Foursquare user's previous venues visited
+If the user is able to login to the app, I could keep track of a seperate view that shows the user their most recent venues or somehow denote recent venues on the current tableview.  Off of that, the app could provide suggestions of new venues to check out.
+
+### Type in location instead of enabling location services
+Some users might not want to enable the extra services, so adding an option to search for venues in specific cities or regions might be a nice alternative.
