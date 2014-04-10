@@ -13,7 +13,7 @@
 #define CLIENT_SECRET @"LL5SPVXAG3BHHJB2AS1BPDYFZT2KST0B1HWPMUZFKAYWHK0C"
 #define bgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-@interface LocationUtil : NSObject <CLLocationManagerDelegate> {
+@interface LocationHelper : NSObject <CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
 }
 

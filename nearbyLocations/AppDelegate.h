@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LocationUtil.h"
+#import "LocationHelper.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
-@property (nonatomic, strong) LocationUtil *location;
+@property (nonatomic, strong) LocationHelper *location;
 
 @end

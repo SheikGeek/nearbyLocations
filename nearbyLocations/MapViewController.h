@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MapPoint.h"
-#import "LocationUtil.h"
+#import "LocationHelper.h"
 
 @interface MapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate> {
     CLLocationCoordinate2D currentCentre;

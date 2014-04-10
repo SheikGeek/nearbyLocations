@@ -16,7 +16,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     //Query for user's current location
-    self.location = [[LocationUtil alloc] init];
+    self.location = [[LocationHelper alloc] init];
     [self.location getUserCurrentLocation];
 
     return YES;

@@ -26,8 +26,8 @@
 		289E258818ED227D00E93E5E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E258518ED227D00E93E5E /* MapViewController.m */; };
 		289E258918ED227D00E93E5E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E258518ED227D00E93E5E /* MapViewController.m */; };
 		289E258B18ED231E00E93E5E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289E258A18ED231E00E93E5E /* MapKit.framework */; };
-		289E258E18ED30CA00E93E5E /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E258D18ED30CA00E93E5E /* LocationUtil.m */; };
-		289E258F18ED30CA00E93E5E /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E258D18ED30CA00E93E5E /* LocationUtil.m */; };
+		289E258E18ED30CA00E93E5E /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E258D18ED30CA00E93E5E /* LocationHelper.m */; };
+		289E258F18ED30CA00E93E5E /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 289E258D18ED30CA00E93E5E /* LocationHelper.m */; };
 		28CF664C18F12A970059BF73 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF664B18F12A970059BF73 /* Venue.m */; };
 		28CF664D18F12A9C0059BF73 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF664B18F12A970059BF73 /* Venue.m */; };
 		28CF665318F1FACC0059BF73 /* cafe.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CF664F18F1FACC0059BF73 /* cafe.png */; };
@@ -73,8 +73,8 @@
 		289E258418ED227D00E93E5E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		289E258518ED227D00E93E5E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		289E258A18ED231E00E93E5E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		289E258C18ED30CA00E93E5E /* LocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationUtil.h; sourceTree = "<group>"; };
-		289E258D18ED30CA00E93E5E /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
+		289E258C18ED30CA00E93E5E /* LocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHelper.h; sourceTree = "<group>"; };
+		289E258D18ED30CA00E93E5E /* LocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHelper.m; sourceTree = "<group>"; };
 		28CF664A18F12A970059BF73 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		28CF664B18F12A970059BF73 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		28CF664F18F1FACC0059BF73 /* cafe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cafe.png; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 				289E256018ED1F8E00E93E5E /* ListViewController.m */,
 				289E256518ED1F8E00E93E5E /* Images.xcassets */,
 				289E255118ED1F8E00E93E5E /* Supporting Files */,
-				289E258C18ED30CA00E93E5E /* LocationUtil.h */,
-				289E258D18ED30CA00E93E5E /* LocationUtil.m */,
+				289E258C18ED30CA00E93E5E /* LocationHelper.h */,
+				289E258D18ED30CA00E93E5E /* LocationHelper.m */,
 				28CF664A18F12A970059BF73 /* Venue.h */,
 				28CF664B18F12A970059BF73 /* Venue.m */,
 			);
@@ -315,7 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				289E258818ED227D00E93E5E /* MapViewController.m in Sources */,
-				289E258E18ED30CA00E93E5E /* LocationUtil.m in Sources */,
+				289E258E18ED30CA00E93E5E /* LocationHelper.m in Sources */,
 				28CF664C18F12A970059BF73 /* Venue.m in Sources */,
 				289E255B18ED1F8E00E93E5E /* AppDelegate.m in Sources */,
 				289E256118ED1F8E00E93E5E /* ListViewController.m in Sources */,
@@ -329,7 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				289E258918ED227D00E93E5E /* MapViewController.m in Sources */,
-				289E258F18ED30CA00E93E5E /* LocationUtil.m in Sources */,
+				289E258F18ED30CA00E93E5E /* LocationHelper.m in Sources */,
 				289E257918ED1F8F00E93E5E /* nearbyLocationsTests.m in Sources */,
 				28CF664D18F12A9C0059BF73 /* Venue.m in Sources */,
 				289E258718ED227D00E93E5E /* MapPoint.m in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chelsea Carr. All rights reserved.
 //
 
-#import "LocationUtil.h"
+#import "LocationHelper.h"
 
-@implementation LocationUtil
+@implementation LocationHelper
 
 - (void)getUserCurrentLocation {
     locationManager = [[CLLocationManager alloc] init];
